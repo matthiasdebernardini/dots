@@ -9,8 +9,11 @@ set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 set smartindent   " does the right thing (mostly) in programs
 set cindent       " stricter rules for C programs
-let mapleader = ","
-au FocusLost * :wa " saves on losing focus
+
+let mapleader = " "
+"au FocusLost * :wa " saves on losing focus
+
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -36,6 +39,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'luochen1990/rainbow'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'mhinz/vim-grepper'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -53,7 +57,8 @@ filetype plugin indent on    " required
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
- let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 " To ignore plugin indent changes, instead use:deded
 "filetype plugin on
 "
@@ -65,3 +70,47 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"Remaps
+nnoremap <Leader>r :%s//gc<Left><Left><Left>
+" .............................................................................
+"junegunn/fzf.vim
+" .............................................................................
+
+"search for lines
+nnoremap <silent> <Leader>l :Lines<CR>
+
+"list all buffers that you can then open
+nnoremap <silent> <Leader><Enter> :Buffers<CR>
+
+"Launch FZF with -m which lets you select multi lines - similar functionality
+"to sublime and vscode
+nnoremap <silent> <C-p> :FZF -m<CR>
+
+" Allow passing optional flags into the Rg command.
+"   Example: :Rg myterm -g '*.md'
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
+
+" .............................................................................
+" mhinz/vim-grepper
+" .............................................................................
+
+let g:grepper={}
+let g:grepper.tools=["rg"]
+
+xmap gr <plug>(GrepperOperator)
+
+" After searching for text, press this mapping to do a project wide find and
+" replace. It's similar to <leader>r except this one applies to all matches
+" across all files instead of just the current file.
+nnoremap <Leader>R
+  \ :let @s='\<'.expand('<cword>').'\>'<CR>
+  \ :Grepper -cword -noprompt<CR>
+  \ :cfdo %s/<C-r>s//g \| update
+  \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+
+" The same as above except it works with a visual selection.
+xmap <Leader>R
+    \ "sy
+    \ gvgr
+    \ :cfdo %s/<C-r>s//g \| update
+     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
