@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, requirededdede
+set nocompatible              " be iMproved, require 
 filetype off                  " requireod
 
 set relativenumber
@@ -26,6 +26,8 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo eded
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
@@ -72,12 +74,16 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 " Put your non-Plugin stuff after this line
 "Remaps
 nnoremap <Leader>r :%s//gc<Left><Left><Left>
+"eded You can dedcombine bufdo wded with update to do that. For example, to map XX to save all open buffers, you can do:
+nnoremap <Leader>s :update<CR>
+
 " .............................................................................
 "junegunn/fzf.vim
 " .............................................................................
 
-"search for lines
+"search for lines and files
 nnoremap <silent> <Leader>l :Lines<CR>
+nnoremap <silent> <Leader>f :Files<CR>
 
 "list all buffers that you can then open
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
