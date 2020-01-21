@@ -77,6 +77,8 @@ nnoremap <Leader>r :%s//gc<Left><Left><Left>
 "eded You can dedcombine bufdo wded with update to do that. For example, to map XX to save all open buffers, you can do:
 nnoremap <Leader>s :update<CR>
 
+writes the file, clears the terminal and runs the pyton file in the currnet buffer
+map <F5> <Esc>:w<CR>:!clear;python %<CR>
 " .............................................................................
 "junegunn/fzf.vim
 " .............................................................................
