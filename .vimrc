@@ -9,6 +9,7 @@ set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 set smartindent   " does the right thing (mostly) in programs
 set cindent       " stricter rules for C programs
+set autowriteall 
 
 let mapleader = " "
 "au FocusLost * :wa " saves on losing focus
@@ -26,8 +27,6 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo eded
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
