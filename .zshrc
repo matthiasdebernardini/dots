@@ -98,10 +98,10 @@ source $ZSH/oh-my-zsh.sh
 alias config='/usr/bin/git --git-dir=/home/vagrant/.cfg/ --work-tree=/home/vagrant'
 alias vf='vim $(fzf)'
 # taken from distro tubes vimrc
-alias ls='exa -al --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='exa -al --color=always --group-directories-first --git -s=old' # my preferred listing
+alias la='exa -a --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --git -s=old'  # long format
+alias lt='exa -aT --color=always --group-directories-first --git -s=old' # tree listing
 
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
