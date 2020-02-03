@@ -1,4 +1,4 @@
-set nocompatible              " be iMproved, require 
+set nocompatible              " be iMproved, required
 filetype off                  " requireod
 
 set relativenumber
@@ -6,96 +6,102 @@ set relativenumber
 set tabstop=8     " tabs are at proper location
 set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
+
 set autoindent    " turns it on
 set smartindent   " does the right thing (mostly) in programs
 set cindent       " stricter rules for C programs
-set autowriteall 
+"neovim clipboard
+set clipboard+=unnamedplus
 
 let mapleader = " "
-"au FocusLost * :wa " saves on losing focus
 
+" .............................................................................
+" matthiasdebernardini/python
+" .............................................................................
+" writes the file, clears the terminal and runs the pyton file in the current buffer
+map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" .............................................................................
+" junegunn/vim-plug
+" .............................................................................
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/vim-gist'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo eded
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-sensible'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'honza/vim-snippets'
-Plugin 'sirver/ultisnips'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-commentary'
-Plugin 'luochen1990/rainbow'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'mhinz/vim-grepper'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" git repos on your local machine (i.e. when working on your own plugin)
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'honza/vim-snippets'
+Plug 'sirver/ultisnips'
+
+Plug 'luochen1990/rainbow'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/vim-peekaboo'
+
+Plug 'mhinz/vim-grepper'
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'vimwiki/vimwiki'
+
+call plug#end()
+
+" .............................................................................
+" mattn/webapi-vim
+" .............................................................................
+let g:gist_post_private = 1
+
+" .............................................................................
+" vimwiki/vimwiki
+" .............................................................................
+" prefer markdown
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" .............................................................................
+" rust-lang/rust.vim
+" .............................................................................
+nnoremap <Leader>cr :Gwrite<CR> :Cargo run<CR>
+nnoremap <Leader>ct :Gwrite<CR> :Cargo test<CR>
+
+" .............................................................................
+" sirver/ultisnips
+" .............................................................................
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" .............................................................................
+" luochen1990/rainbow
+" .............................................................................
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-" To ignore plugin indent changes, instead use:deded
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-"Remaps
-nnoremap <Leader>r :%s//gc<Left><Left><Left>
-"eded You can dedcombine bufdo wded with update to do that. For example, to map XX to save all open buffers, you can do:
-nnoremap <Leader>s :update<CR>
 
-" writes the file, clears the terminal and runs the pyton file in the currnet buffer
-map <F5> <Esc>:w<CR>:!clear;python %<CR>
 " .............................................................................
-"junegunn/fzf.vim
+" tpope/vim-fugitive
 " .............................................................................
+nnoremap <Leader>w :Gwrite<CR>
 
+" .............................................................................
+" junegunn/fzf.vim
+" .............................................................................
 "search for lines and files
 nnoremap <silent> <Leader>l :Lines<CR>
 nnoremap <silent> <Leader>f :Files<CR>
-
-"list all buffers that you can then open
 nnoremap <silent> <Leader><Enter> :Buffers<CR>
 
 "Launch FZF with -m which lets you select multi lines - similar functionality
 "to sublime and vscode
 nnoremap <silent> <C-p> :FZF -m<CR>
-
-" Allow passing optional flags into the Rg command.
-"   Example: :Rg myterm -g '*.md'
-command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case " . <q-args>, 1, <bang>0)
 
 " .............................................................................
 " mhinz/vim-grepper
@@ -104,6 +110,7 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 let g:grepper={}
 let g:grepper.tools=["rg"]
 
+nnoremap <Leader>r :%s//gc<Left><Left><Left>
 xmap gr <plug>(GrepperOperator)
 
 " After searching for text, press this mapping to do a project wide find and
@@ -120,4 +127,5 @@ xmap <Leader>R
     \ "sy
     \ gvgr
     \ :cfdo %s/<C-r>s//g \| update
-     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+     \<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>kk
+
