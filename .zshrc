@@ -102,7 +102,7 @@ alias reld="source ~/.zshrc"
 alias vimconfig="nvim ~/.vimrc"
 alias pracvim="vim -u /Users/matthiasdebernardini/git/practical-vim/essential.vim"
 alias cargoprinttest="cargo test -- --nocapture"
-
+alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias connectdas='ssh mdi570@fs0.das5.cs.vu.nl'
 
 alias ls='exa -al --color=always --group-directories-first --git -s=old' # my preferred listing
