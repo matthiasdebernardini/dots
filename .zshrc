@@ -1,6 +1,12 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# POWERLEVEL9K_ALWAYS_SHOW_USER="false"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/matthiasdebernardini/.oh-my-zsh"
 
@@ -8,7 +14,8 @@ export ZSH="/Users/matthiasdebernardini/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -68,7 +75,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man-pages)
+plugins=(git zsh-autosuggestions colored-man-pages)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -96,6 +103,7 @@ fi
 #
 # Example aliases
 alias vf='nvim $(fzf)'
+alias bf='bat $(fzf)'
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias reld="source ~/.zshrc"
@@ -104,6 +112,8 @@ alias pracvim="vim -u /Users/matthiasdebernardini/git/practical-vim/essential.vi
 alias cargoprinttest="cargo test -- --nocapture"
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias connectdas='ssh mdi570@fs0.das5.cs.vu.nl'
+alias wiki='cd ~/vimwiki'
+alias python="/usr/local/bin/python3"
 
 alias ls='exa -al --color=always --group-directories-first --git -s=old' # my preferred listing
 alias la='exa -a --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
@@ -114,4 +124,27 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 
 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /Users/matthiasdebernardini/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/matthiasdebernardini/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/matthiasdebernardini/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/matthiasdebernardini/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/matthiasdebernardini/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
