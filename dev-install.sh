@@ -14,9 +14,12 @@ sudo apt update
 sudo apt upgrade
 sudo apt install zsh neovim lib-ssldev clang clang9 llvm 
 
-# fzf
-
+# rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+#vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
 
