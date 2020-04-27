@@ -10,10 +10,20 @@ set shiftwidth=4  " indenting is 4 spaces
 set autoindent    " turns it on
 set smartindent   " does the right thing (mostly) in programs
 set cindent       " stricter rules for C programs
+
+set termguicolors
+" g/^#\[ignore\]$/d
 "neovim clipboard
 set clipboard+=unnamedplus
 
 let mapleader = " "
+" .............................................................................
+" matthiasdebernardini/*
+" .............................................................................
+nnoremap <Leader>dg :digraph<CR>
+nnoremap <Leader>xx :%!xxd <CR>
+nnoremap <Leader>xxr :%!xxd -r <CR>
+ 
 
 " .............................................................................
 " matthiasdebernardini/python
@@ -48,14 +58,28 @@ Plug 'junegunn/fzf.vim'
 " Plug 'junegunn/vim-peekaboo'
 
 Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-signify'
 
 Plug 'rust-lang/rust.vim'
+Plug 'arzg/vim-rust-syntax-ext'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'iCyMind/NeoSolarized'
+
+Plug 'markonm/traces.vim'
+
+Plug 'axvr/zepl.vim'
+
 call plug#end()
+" let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
+" .............................................................................
+" iCyMind/NeoSolarized
+" .............................................................................
+colorscheme NeoSolarized
 
 " .............................................................................
 " mattn/webapi-vim
@@ -65,9 +89,7 @@ let g:gist_post_private = 1
 " .............................................................................
 " vimwiki/vimwiki
 " .............................................................................
-" prefer markdown
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " .............................................................................
 " rust-lang/rust.vim
 " .............................................................................

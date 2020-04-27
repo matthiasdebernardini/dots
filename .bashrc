@@ -56,3 +56,5 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+source /Users/matthiasdebernardini/Library/Preferences/org.dystroy.broot/launcher/bash/br
