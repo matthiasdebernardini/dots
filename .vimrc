@@ -23,13 +23,18 @@ let mapleader = " "
 nnoremap <Leader>dg :digraph<CR>
 nnoremap <Leader>xx :%!xxd <CR>
 nnoremap <Leader>xxr :%!xxd -r <CR>
- 
+autocmd FileType python map <buffer> <Leader>p :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <Leader>p <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " .............................................................................
 " matthiasdebernardini/python
 " .............................................................................
 " writes the file, clears the terminal and runs the pyton file in the current buffer
+"
 map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
+
+nnoremap <C-Up> <Up>"add"ap<Up>
+nnoremap <C-Down> "add"ap
 
 " .............................................................................
 " junegunn/vim-plug
@@ -91,10 +96,22 @@ let g:gist_post_private = 1
 " .............................................................................
 
 " .............................................................................
+" neoclide/coc.nvim
+" .............................................................................
+
+inoremap <Leader>h <Left>
+inoremap <Leader>j <Down>
+inoremap <Leader>k <Up>
+inoremap <Leader>l <Right>
+" .............................................................................
 " rust-lang/rust.vim
 " .............................................................................
 nnoremap <Leader>cr :Gwrite<CR> :Cargo run<CR>
 nnoremap <Leader>ct :Gwrite<CR> :Cargo test<CR>
+nnoremap <Leader>cti :Gwrite<CR> :Cargo test -- --ignored<CR>
+nnoremap <Leader>cc :Gwrite<CR> :Cargo clippy --all-targets<CR>
+
+let g:rustfmt_autosave = 1
 
 " .............................................................................
 " sirver/ultisnips
