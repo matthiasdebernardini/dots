@@ -1,8 +1,11 @@
 set nocompatible              " be iMproved, required
 filetype off                  " requireod
 
-set relativenumber
 
+set relativenumber
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 set tabstop=8     " tabs are at proper location
 set expandtab     " don't use actual tab character (ctrl-v)
 set shiftwidth=4  " indenting is 4 spaces
@@ -16,7 +19,7 @@ set termguicolors
 "neovim clipboard
 set clipboard+=unnamedplus
 
-let mapleader = " "
+let mapleader = ","
 " .............................................................................
 " matthiasdebernardini/*
 " .............................................................................
@@ -24,8 +27,12 @@ nnoremap <Leader>dg :digraph<CR>
 nnoremap <Leader>xx :%!xxd <CR>
 nnoremap <Leader>xxr :%!xxd -r <CR>
 autocmd FileType python map <buffer> <Leader>p :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map <buffer> <Leader>pt :w<CR>:exec '!python3 -m unittest' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <Leader>p <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-
+let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
+set showcmd                     " Show me what I'm typing
+set showmode                    " Show current mode.
 " .............................................................................
 " matthiasdebernardini/python
 " .............................................................................
@@ -52,9 +59,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-Plug 'honza/vim-snippets'
-Plug 'sirver/ultisnips'
 
 Plug 'luochen1990/rainbow'
 
@@ -85,24 +89,23 @@ let g:airline_solarized_bg='dark'
 " iCyMind/NeoSolarized
 " .............................................................................
 colorscheme NeoSolarized
-
 " .............................................................................
 " mattn/webapi-vim
 " .............................................................................
 let g:gist_post_private = 1
-
 " .............................................................................
 " vimwiki/vimwiki
 " .............................................................................
-
+let g:vimwiki_list = [{'syntax': 'markdown'}]
+au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 " .............................................................................
 " neoclide/coc.nvim
 " .............................................................................
+"
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-inoremap <Leader>h <Left>
-inoremap <Leader>j <Down>
-inoremap <Leader>k <Up>
-inoremap <Leader>l <Right>
+
 " .............................................................................
 " rust-lang/rust.vim
 " .............................................................................
@@ -116,9 +119,6 @@ let g:rustfmt_autosave = 1
 " .............................................................................
 " sirver/ultisnips
 " .............................................................................
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " .............................................................................
 " luochen1990/rainbow

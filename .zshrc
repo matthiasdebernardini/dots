@@ -10,6 +10,11 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/matthiasdebernardini/.oh-my-zsh"
 
+set -o vi
+# Enable Vim mode in ZSH
+bindkey -v
+
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -93,6 +98,8 @@ else
   export EDITOR='nvim'
 fi
 
+eval "$(zoxide init zsh)"
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -105,6 +112,7 @@ fi
 alias vf='nvim $(fzf)'
 alias bf='bat $(fzf)'
 alias zshconfig="nvim ~/.zshrc"
+alias exrust="cd ~/Exercism/rust"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias reld="source ~/.zshrc"
 alias vimconfig="nvim ~/.vimrc"
@@ -149,3 +157,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH=/Users/matthiasdebernardini/Library/Python/3.7/bin:$PATH
