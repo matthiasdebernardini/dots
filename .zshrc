@@ -109,19 +109,20 @@ eval "$(zoxide init zsh)"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias vf='nvim $(fzf)'
-alias bf='bat $(fzf)'
-alias zshconfig="nvim ~/.zshrc"
-alias exrust="cd ~/Exercism/rust"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias reld="source ~/.zshrc"
-alias vimconfig="nvim ~/.vimrc"
-alias pracvim="nvim -u /Users/matthiasdebernardini/git/practical-vim/essential.vim"
-alias cargoprinttest="cargo test -- --nocapture"
+alias vfs='nvim $(fd -d 1 -H | sk -m)'
+alias bfs='bat $(fd -d 1 -H | sk -m)'
+alias zshconfig='nvim ~/.zshrc'
+alias exrust='cd ~/Exercism/rust'
+alias ohmyzsh='nvim ~/.oh-my-zsh'
+alias reld='source ~/.zshrc'
+alias vimconfig='nvim ~/.vimrc'
+alias pracvim='nvim -u /Users/matthiasdebernardini/git/practical-vim/essential.vim'
+alias cargoprinttest='cargo test -- --nocapture'
 alias config='/usr/local/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias connectdas='ssh mdi570@fs0.das5.cs.vu.nl'
 alias wiki='cd ~/vimwiki'
-alias python="/usr/local/bin/python3"
+alias python='/usr/local/bin/python3'
+alias mdcat='mdcat $(fd --extension md | sk -m) --paginate'
 
 alias ls='exa -al --color=always --group-directories-first --git -s=old' # my preferred listing
 alias la='exa -a --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
