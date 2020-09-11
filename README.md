@@ -1,6 +1,6 @@
-# .dotfiles
+# [Fish + NeoVim].dotfiles 
 
-## for fish and neovim 
+## [taken from](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## using
 
@@ -9,21 +9,19 @@
   + fzf
   + cargo shell utilities and aliases
 
-[taken from](https://www.atlassian.com/git/tutorials/dotfiles)
+## five line bootstrap
 
-## four line bootstrap
+`alias dots="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME"`
 
-`alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"`
+`echo ".dots" >> .gitignore`
 
-`echo ".cfg" >> .gitignore`
+`git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.dots`
 
-`git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg`
-
-`config checkout`
+`dots checkout`
 
 `install.sh`
 
-### or in one line
+## or in one line
 
-`alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" && echo ".cfg" >> .gitignore && git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg && config checkout && install.sh`
+`alias dots="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" && echo ".dots" >> .gitignore && git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.dots && dots checkout && install.sh`
 
