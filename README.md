@@ -1,13 +1,16 @@
 # .dotfiles
-my vim and zsh and bashrc dotfiles 
+for fish and neovim 
 
-using vundle and fzf
+featuring
+  fisher
+  vim-plug
+  fzf
+  cargo shell utilities and aliases
 
-based on https://www.atlassian.com/git/tutorials/dotfiles
-`alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' && echo ".cfg" >> .gitignore && git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg && alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'`
+scheme taken from https://www.atlassian.com/git/tutorials/dotfiles
+
+`alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' && 
+echo ".cfg" >> .gitignore && 
+git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg
 
 then run `config checkout`
-
-
-
-zsh https://linuxhint.com/install_zsh_shell_ubuntu_1804/ 
