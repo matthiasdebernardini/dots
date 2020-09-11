@@ -1,16 +1,29 @@
 # .dotfiles
-for fish and neovim 
 
-featuring
-  fisher
-  vim-plug
-  fzf
-  cargo shell utilities and aliases
+## for fish and neovim 
 
-scheme taken from https://www.atlassian.com/git/tutorials/dotfiles
+## using
 
-`alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' && 
-echo ".cfg" >> .gitignore && 
-git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg
+  + fisher
+  + vim-plug
+  + fzf
+  + cargo shell utilities and aliases
 
-then run `config checkout`
+[taken from](https://www.atlassian.com/git/tutorials/dotfiles)
+
+## four line bootstrap
+
+`alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"`
+
+`echo ".cfg" >> .gitignore`
+
+`git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg`
+
+`config checkout`
+
+`install.sh`
+
+### or in one line
+
+`alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME" && echo ".cfg" >> .gitignore && git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.cfg && config checkout && install.sh`
+
