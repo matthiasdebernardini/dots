@@ -23,4 +23,5 @@
 
 ## or in one line
 
-`alias dots="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME" && echo ".dots" >> .gitignore && git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.dots && dots checkout && install.sh`
+`curl https://gist.githubusercontent.com/matthiasdebernardini/969a3e2776fcc4b56aa774e792efcfe9/raw |
+bash`
