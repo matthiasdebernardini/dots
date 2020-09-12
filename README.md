@@ -1,6 +1,6 @@
 # [Fish + NeoVim].dotfiles 
 
-## [taken from](https://www.atlassian.com/git/tutorials/dotfiles)
+[taken from](https://www.atlassian.com/git/tutorials/dotfiles)
 
 ## using
 
@@ -23,5 +23,4 @@
 
 ## or in one line
 
-`curl https://gist.githubusercontent.com/matthiasdebernardini/969a3e2776fcc4b56aa774e792efcfe9/raw |
-bash`
+`curl https://gist.githubusercontent.com/matthiasdebernardini/969a3e2776fcc4b56aa774e792efcfe9/raw`
