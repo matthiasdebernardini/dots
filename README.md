@@ -1,13 +1,18 @@
-# [Fish + NeoVim].dotfiles 
+# [Fish + NeoVim].dotfiles for Ubuntu/Debian
 
-[taken from](https://www.atlassian.com/git/tutorials/dotfiles)
+[This method](https://www.atlassian.com/git/tutorials/dotfiles)
+
+ + only requires git (no symlinks or copies)
+ + branches can be used to manage different OS's or instances
+ + one line to bootstrapped
 
 ## using
 
   + fisher
   + vim-plug
   + fzf
-  + cargo shell utilities and aliases
+  + rust shell utilities
+  + abbr instead of alias
 
 ## five line bootstrap
 
@@ -17,7 +22,7 @@
 
 `git clone --bare https://github.com/matthiasdebernardini/.dotfiles $HOME/.dots`
 
-`dots checkout`
+`dots checkout master`
 
 `install.sh`
 
