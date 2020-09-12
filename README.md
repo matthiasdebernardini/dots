@@ -1,6 +1,6 @@
 # [Fish + NeoVim].dotfiles for Ubuntu/Debian
 
-[This method](https://www.atlassian.com/git/tutorials/dotfiles)
+## [This method](https://www.atlassian.com/git/tutorials/dotfiles)
 
  + only requires git (no symlinks or copies)
  + branches can be used to manage different OS's or instances
