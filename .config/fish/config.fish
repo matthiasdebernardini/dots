@@ -20,4 +20,4 @@ function take
   cd $argv
 end
 
-
+zoxide init fish | source

@@ -7,11 +7,11 @@ mkdir gits
 # Install Core Packages
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
-sudo apt upgrade -y
 sudo apt install -y build-essential exuberant-ctags
-sudo apt install -y software-properties-common libssl-dev
+sudo apt install -y software-properties-common libssl-dev pkg-config
 sudo apt install -y tmux fish
 sudo apt install -y fuse libfuse2 git python3-pip ack-grep
+sudo apt upgrade -y
 sudo apt purge --auto-remove cmake
 
 # install CMake
@@ -40,17 +40,14 @@ echo "Installing Rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 cargo install --locked bat
-cargo install ripgrep sd exa fd-find bandwhich 
+cargo install ripgrep sd exa fd-find jql gitweb just du-dust
+cargo install zoxide -f
+sudo cargo install bandwhich --root /usr/local/bin/
 
-# Install dotfiles
-echo "Installing dotfiles..."
-mkdir -p ~/.config/fish
-mkdir -p ~/.config/nvim
-cp -rv ~/Dotfiles-2/config/fish/config.fish ~/.config/fish/config.fish
-cp -rv ~/Dotfiles-2/config/nvim/init.vim  ~/.config/nvim/init.vim
-
-# install Fisher plugin
+# install Fisher plugin and plugins
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+source ~/.config/fish/functions/fisher.fish
+fisher add joseluisq/gitnow rafaelrinaldi/pure patrickf3139/fzf.fish
 
 # Install NeoVim
 cd ~
@@ -68,10 +65,8 @@ pip3 install --user neovim
 echo "Configuring NeoVim..."
 mkdir -p ~/.vim/tmp/{swap,undo,backup}
 
-
 # Install FZF from source
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 echo "All Done."
-pip3 install youtube-dl

@@ -3,23 +3,25 @@ abbr s 'sudo'
 abbr aptd 'sudo apt update'
 abbr aptg 'sudo apt update && sudo apt -y upgrade'
 
-abbr ls   'exa -al --color=always --group-directories-first --git -s=old'
-abbr la   'exa -a  --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
-abbr ll   'exa -l  --color=always --group-directories-first --git -s=old'  # long format
-abbr lt   'exa -aT --color=always --group-directories-first --git -s=old' # tree listing
+abbr ls    'exa -al --color=always --group-directories-first --git -s=old'
+abbr la    'exa -a  --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
+abbr ll    'exa -l  --color=always --group-directories-first --git -s=old'  # long format
+abbr lt    'exa -aT --color=always --group-directories-first --git -s=old' # tree listing
+abbr bandw 'sudo bandwhich'
 
 abbr dots  '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-abbr dfadd '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .config/fish/config.fish'
-abbr dvadd '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .config/nvim/init.vim'
+abbr dadd  '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .config/fish/conf.d/abbreviations.fish .config/nvim/init.vim .config/nvim/init.vim'
 abbr dcomm '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit'
 abbr dpull '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME pull origin master'
 abbr dpush '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push origin master'
+abbr gc    'cd ~/gits; and git clone '
 
 abbr v    'nvim'
 abbr c    'bat'
 
-abbr frc  'nvim ~/.config/fish/config.fish'
-abbr vrc  'nvim ~/.config/nvim/init.vim'
+abbr frc    'nvim ~/.config/fish/config.fish'
+abbr vrc    'nvim ~/.config/nvim/init.vim'
+abbr reload 'source ~/.config/fish/config.fish'
 
 abbr cwd    "pwd | eval $CLIPBOARD"
 abbr rmrf   "rm -rf"   # as if bricking your machine wasn't easy enough
