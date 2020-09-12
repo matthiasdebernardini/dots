@@ -2,9 +2,9 @@
 
 ## [This method](https://www.atlassian.com/git/tutorials/dotfiles)
 
- + only requires git (no symlinks or copies)
- + branches can be used to manage different OS's or instances
- + one line to bootstrapped
+ + git only (no symlinks or sync'd copies)
+ + can use branches to manage multiple instances
+ + bootstraps itself with a one liner (script is small so you dont have to sell your soul)
 
 ## a gist to pipe into bash
 
