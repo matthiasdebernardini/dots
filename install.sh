@@ -7,10 +7,14 @@ mkdir gits
 # Install Core Packages
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
-sudo apt install -y build-essential exuberant-ctags
+sudo apt install -y build-essential 
 sudo apt install -y software-properties-common libssl-dev pkg-config
 sudo apt install -y tmux fish
+# neovim
 sudo apt install -y fuse libfuse2 git python3-pip ack-grep
+# ctags
+sudo apt install gcc make pkg-config autoconf automake python3-docutils libseccomp-dev libjansson-dev libyaml-dev libxml2-dev
+
 sudo apt upgrade -y
 sudo apt purge --auto-remove cmake
 
@@ -66,7 +70,18 @@ echo "Configuring NeoVim..."
 mkdir -p ~/.vim/tmp/{swap,undo,backup}
 
 # Install FZF from source
+echo "Installing FZF..."
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+
+# Install universal ctags
+echo "Installing CTags..."
+cd ~/gits
+git clone https://github.com/universal-ctags/ctags
+cd ctags
+./autogen.sh
+./configure 
+make -j$(nproc)
+sudo make install 
 
 echo "All Done."
