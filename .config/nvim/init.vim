@@ -10,6 +10,7 @@ Plug 'mattn/vim-gist'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
@@ -22,7 +23,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Fuzzy finder in vim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': ['FZF', 'Tags', 'Buffers', 'Files', 'Helptags', 'Lines', 'Ag'] }
+Plug 'junegunn/fzf.vim', { 'on': ['FZF', 'Tags', 'Buffers', 'Files', 'Helptags', 'Lines', 'Ag', 'Filetypes'] }
 
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-signify'
@@ -66,8 +69,8 @@ set encoding=utf-8
 set expandtab
 set smarttab
 set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set softtabstop=8
+set tabstop=8
 set autoindent
 set smartindent
 set cindent
@@ -143,6 +146,7 @@ nnoremap <leader>V :tabnew  ~/.config/nvim/init.vim<CR>
 
 map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
 imap ii <Esc>
+imap zz <Esc>:wq<CR>
 
 """"""""""""""""""""""""""""""""
 "
@@ -233,6 +237,28 @@ nnoremap <Leader>w :Gwrite<CR>
 " .............................................................................
 " junegunn/fzf.vim
 " .............................................................................
+set rtp+=~/.fzf
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+      \ 'ctrl-f': function('s:build_quickfix_list'),
+      \ 'ctrl-t': 'tabedit',
+      \ 'ctrl-p': 'split',
+      \ 'ctrl-v': 'vsplit' }
+let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.4 } }
+let g:fzf_preview_window = 'right:60%'
+" Jump to existing buffer/window if possible
+let g:fzf_buffers_jump = 1
+
+nnoremap <leader>Enter :Buffers<CR>
+nnoremap <leader>W :BLines<CR>
+nnoremap <leader>? :Helptags<CR>
+nnoremap <leader>T :Tags<CR>
+nnoremap <leader>M :Marks<CR>
 "search for lines and files
 nnoremap <silent> <Leader>l :Lines<CR>
 nnoremap <silent> <Leader>f :Files<CR>
@@ -240,8 +266,7 @@ nnoremap <silent> <Leader><Enter> :Buffers<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comment' } }
 
 "Launch FZF with -m which lets you select multi lines - similar functionality
-"to sublime and vscode
-nnoremap <silent> <C-p> :FZF -m<CR>
+nnoremap <silent> <C-p> :FZF<CR>
 " .............................................................................
 " deoplete-plugins/deoplete-clang
 " .............................................................................

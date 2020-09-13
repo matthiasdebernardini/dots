@@ -42,7 +42,7 @@ abbr p 'pwd'
 abbr tgz 'tar -xvzf' # extract .tar.gz
 abbr tbz 'tar -xvjf' # extract .tar.bz2
 
-abbr zzz    'sudo shutdown -s now'
+abbr zzz    'sudo shutdown now'
 abbr reboot 'sudo shutdown -r now'
 abbr off    'sudo shutdown -h now'
 
