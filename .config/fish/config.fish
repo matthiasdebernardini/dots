@@ -8,7 +8,9 @@ set LD_LIBRARY_PATH $HOME/gits/llvm-project/build/lib $LD_LIBRARY_PATH
 
 set PATH $HOME/.cargo/bin $PATH
 
+set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
+set -x LANGUAGE en_US.UTF-8
 
 function inst
     sudo apt update
@@ -21,3 +23,4 @@ function take
 end
 
 zoxide init fish | source
+

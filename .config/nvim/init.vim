@@ -90,6 +90,7 @@ set textwidth=100
 set cmdheight=1
 " Use "hybrid" (both absolute and relative) line numbers
 set number relativenumber
+set $MYVIMRC='~/.config/nvim/init.vim'
 
 " Use the system clipboard
 set clipboard=unnamed
@@ -98,7 +99,7 @@ set clipboard=unnamed
 let mapleader=","
 
 " Use ,, to switch between buffers
-nnoremap <leader><leader> :b#<CR>
+nnoremap <leader><leader> <c-^>
 
 " Press <tab>, get two spaces
 set expandtab shiftwidth=2
@@ -137,8 +138,8 @@ nnoremap <leader>sc :CloseSession<CR>
 
 
 " open vimrc
-nnoremap <leader>v :e  ~/.config/nvim/init.vim<CR>
-nnoremap <leader>V :tabnew  ~/.config/nvim/init.vim<CR>
+nnoremap <leader>v :e  $MYVIMRC<CR>
+nnoremap <leader>V :tabnew  $MYVIMRC<CR>
 
 map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
 imap ii <Esc>

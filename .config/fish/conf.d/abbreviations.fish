@@ -1,28 +1,38 @@
 abbr gabb 'bat .config/fish/conf.d/abbreviations.fish | rg abbr | fzf'
-abbr s 'sudo'
 abbr aptd 'sudo apt update'
 abbr aptg 'sudo apt update && sudo apt -y upgrade'
 
-abbr ls    'exa -al --color=always --group-directories-first --git -s=old'
-abbr la    'exa -a  --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
-abbr ll    'exa -l  --color=always --group-directories-first --git -s=old'  # long format
-abbr lt    'exa -aT --color=always --group-directories-first --git -s=old' # tree listing
+abbr ls 'exa -al --color=always --group-directories-first --git -s=old'
+abbr la 'exa -a  --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
+abbr ll 'exa -l  --color=always --group-directories-first --git -s=old'  # long format
+abbr lt 'exa -aT --color=always --group-directories-first --git -s=old' # tree listing
+
 abbr bandw 'sudo bandwhich'
 
 abbr dots  '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-abbr dadd  '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add .config/fish/conf.d/abbreviations.fish .config/nvim/init.vim .config/nvim/init.vim'
+abbr dall  '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME add \
+                                              ~/.config/fish/conf.d/abbreviations.fish \
+                                              ~/.config/fish/config.fish \
+                                              ~/.config/nvim/init.vim \
+                                              ~/.tmux.conf \
+                                              ~/.config/alacritty/alacritty.yml \
+                                              ~/.config/fish/conf.d/tmux.fish'
 abbr dcomm '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME commit'
 abbr dpull '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME pull origin master'
 abbr dpush '/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME push origin master'
-abbr gc    'cd ~/gits; and git clone '
 
-abbr v    'nvim'
-abbr c    'bat'
+abbr gc    'cd ~/gits; and git clone'
+
+abbr s 'sudo'
+abbr v 'nvim'
+abbr c 'bat'
+abbr g 'git'
 
 abbr frc    'nvim ~/.config/fish/config.fish'
 abbr vrc    'nvim ~/.config/nvim/init.vim'
-abbr trc   'nvim ~/.tmux.conf'
-abbr arc   'nvim ~/.config/fish/conf.d/abbreviations.fish'
+abbr trc    'nvim ~/.tmux.conf'
+abbr arc    'nvim ~/.config/fish/conf.d/abbreviations.fish'
+
 abbr reload 'source ~/.config/fish/config.fish'
 
 abbr cwd    "pwd | eval $CLIPBOARD"
