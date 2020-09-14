@@ -1,5 +1,7 @@
 # [alacritty + fish + tmux + neovim] 
 
+[screenshot](https://github.com/matthiasdebernardini/.dotfiles/blob/master/setup.png)
+
 ## setup
 
 I am [managing my dotfiles](https://www.atlassian.com/git/tutorials/dotfiles) on macOS [alacritty] to SSH into an Ubuntu shell [fish + tmux + neovim]. This setup is aimed at trying to develop C, python, JS, Go and rust code and administer linux boxes. I use Alacritty because it is easier to configure than iTerm2, renders noticeably faster and has better colors on an Apple Retina display. I was also having problems with scrollback on iTerm2 (with tmux) where I got it working like I wanted but then I changed something and was unable to find how to change it back in the settings (of which there are a million). I finally got everything working like I wanted on alacritty where I felt like I was actually in control of the (yaml) configuration. Theres a link for how to migrate from iTerm2 to Alacritty in projects.
