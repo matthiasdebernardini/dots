@@ -1,3 +1,8 @@
+" Install vim-plug if needed
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent execute "!curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+"   autocmd VimEnter * PlugInstall | source $MYVIMRC
+" endif
 """"""""""""""""""""""""""""""""
 "
 " PACKAGE MANAGEMENT
@@ -47,6 +52,7 @@ Plug 'dense-analysis/ale'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
 
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -90,7 +96,6 @@ set textwidth=100
 set cmdheight=1
 " Use "hybrid" (both absolute and relative) line numbers
 set number relativenumber
-set $MYVIMRC='~/.config/nvim/init.vim'
 
 " Use the system clipboard
 set clipboard=unnamed

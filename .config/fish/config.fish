@@ -8,6 +8,8 @@ set LD_LIBRARY_PATH $HOME/gits/llvm-project/build/lib $LD_LIBRARY_PATH
 
 set PATH $HOME/.cargo/bin $PATH
 
+set MYVIMRC ~/.config/nvim/init.vim
+
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x LANGUAGE en_US.UTF-8

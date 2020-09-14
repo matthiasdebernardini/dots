@@ -1,6 +1,23 @@
 #!/bin/bash
 set -ex
 
+if [ "$(pwd)" != "$HOME" ]; then
+  echo "Please clone this directory as $HOME/.dots."
+  exit 1
+fi
+#   if ! command -v brew &> /dev/null; then
+#     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#   fi
+#   if [ -f "Brewfile" ]; then
+#     brew bundle
+#   fi
+if [[ $(uname -s) == "Linux" ]]; then
+  echo "Setting up your Linux environment..."
+else
+  echo "This OS isn't supported yet."
+  exit 1
+fi
+
 cd ~
 mkdir gits
 
@@ -85,3 +102,4 @@ make -j$(nproc)
 sudo make install 
 
 echo "All Done."
+exit 0
