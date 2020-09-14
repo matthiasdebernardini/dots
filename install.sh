@@ -101,5 +101,16 @@ cd ctags
 make -j$(nproc)
 sudo make install 
 
+#https://github.com/razzius/fish-functions
+#git clone \
+#  --depth 1 \
+#  --filter=combine:blob:none+tree:0 \
+#  --no-checkout \
+#  "file://$(pwd)/server_repo" \
+#  local_repo \
+#;
+#cd local_repo
+#git checkout master -- mydir/
+
 echo "All Done."
 exit 0
