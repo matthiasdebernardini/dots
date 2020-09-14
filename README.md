@@ -2,7 +2,7 @@
 
 ## setup
 
-I am [managing my dotfiles](https://www.atlassian.com/git/tutorials/dotfiles) on macOS [alacritty] to SSH into an Ubuntu shell [fish + tmux + neovim]. This setup is aimed at trying to develop C, python, JS, Go and rust code and administer linux boxes. I use Alacritty `brew cask install alacritty` because it has better colors, renders noticeably faster and is easier to configure than iTerm2 on an Apple Retina display. I was also having problems with scrollback on iTerm2 (with tmux) where I got it working like I wanted but then I changed something and was unable to find how to change it back in the settings (of which there are a million). I finally got everything working like I wanted on alacritty where I felt like I was actually in control of the (yaml) configuration.
+I am [managing my dotfiles](https://www.atlassian.com/git/tutorials/dotfiles) on macOS [alacritty] to SSH into an Ubuntu shell [fish + tmux + neovim]. This setup is aimed at trying to develop C, python, JS, Go and rust code and administer linux boxes. I use Alacritty because it is easier to configure than iTerm2, renders noticeably faster and has better colors on an Apple Retina display. I was also having problems with scrollback on iTerm2 (with tmux) where I got it working like I wanted but then I changed something and was unable to find how to change it back in the settings (of which there are a million). I finally got everything working like I wanted on alacritty where I felt like I was actually in control of the (yaml) configuration. Theres a link for how to migrate from iTerm2 to Alacritty in projects.
 
 I use Ubuntu instead of Debian because I've found it to have better out-of-the-box defaults (for building things) and becuase you can download a pubkey from Github during installation with Ubuntu Server (>=18.04). I will probably have a branch for Debian soon that accomplishes this.
 
@@ -14,13 +14,17 @@ TLDR: These dotfiles are not to setup a Linux desktop, but rather to setup a pro
  + can use branches to manage multiple instances
  + bootstraps itself with a one liner (script is small so you dont have to sell your soul)
  + Solarized colorscheme that works
- + fish abbr's for many things 
+ + lots fish abbr's with a command to help learn
+ + well put together FZF integration in the shell and text editor
+ 
+## missing
+ + 
 
-## a gist to pipe into bash
+## gist
 
 `curl https://gist.githubusercontent.com/matthiasdebernardini/969a3e2776fcc4b56aa774e792efcfe9/raw`
 
-## projects used in these dotfiles
+## projects 
 
 + [alacritty](https://medium.com/@pezcoder/how-i-migrated-from-iterm-to-alacritty-c50a04705f95)
 + [fish](https://fishshell.com)
