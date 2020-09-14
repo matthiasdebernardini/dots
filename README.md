@@ -22,7 +22,7 @@ TLDR: These dotfiles are not to setup a Linux desktop, but rather to setup a pro
 
 ## projects used in these dotfiles
 
-+ [alacritty][https://medium.com/@pezcoder/how-i-migrated-from-iterm-to-alacritty-c50a04705f95]
++ [alacritty](https://medium.com/@pezcoder/how-i-migrated-from-iterm-to-alacritty-c50a04705f95)
 + [fish](https://fishshell.com)
 + [nvim](https://www.linode.com/docs/tools-reference/tools/how-to-install-neovim-and-plugins-with-vim-plug/)
 + [fzf](https://github.com/junegunn/fzf)
