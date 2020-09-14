@@ -1,6 +1,8 @@
 # [alacritty + fish + tmux + neovim] 
 
-[screenshot](https://github.com/matthiasdebernardini/.dotfiles/blob/master/setup.png)
+[](https://github.com/matthiasdebernardini/.dotfiles/blob/master/setup.png?raw=true)
+
+[](/setup.png)
 
 ## setup
 
