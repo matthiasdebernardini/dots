@@ -21,21 +21,6 @@ I will eventually add different ways
  + lots of fish abbr's, with a command to help learn them
  + well put together FZF integration in the shell and text editor
  
-## missing
- + a better installer
- + debian branch
- + pi bitcoin node branch 
- + macOS branch
- + windows branch?
- + pop_os! branch
- + tails branch
- + LSP in neovim and a good make command across different PL's
- + better alacritty key map
- + colors are not perfect (you can see it in the screenshot)
- + better tmux configuration and integration with fish
- + better prompt
- + tor installation and configuration for a more secure SSH 
-
 ## gist
 
 `curl https://gist.githubusercontent.com/matthiasdebernardini/969a3e2776fcc4b56aa774e792efcfe9/raw`
