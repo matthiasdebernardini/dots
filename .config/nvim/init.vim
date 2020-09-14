@@ -34,7 +34,7 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'vimwiki/vimwiki'
 
-Plug 'iCyMind/NeoSolarized'
+Plug 'overcache/NeoSolarized'
 
 Plug 'markonm/traces.vim'
 
@@ -65,6 +65,7 @@ call plug#end()
 " SETTINGS & KEYBINDINGS
 "
 """"""""""""""""""""""""""""""""
+set termguicolors
 set encoding=utf-8
 set expandtab
 set smarttab
@@ -81,22 +82,17 @@ set showmatch
 set incsearch
 set hls
 set ls=2
-set cursorline
+" set cursorline
 set nowrap
 set shell=/bin/bash
 set completeopt -=preview
 set textwidth=100
-set noshowmode
 set cmdheight=1
-set nofoldenable
 " Use "hybrid" (both absolute and relative) line numbers
 set number relativenumber
 
 " Use the system clipboard
 set clipboard=unnamed
-
-" Use a color column on the 80-character mark
-set colorcolumn=120
 
 " Use , as the leader key
 let mapleader=","
@@ -148,11 +144,6 @@ map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
 imap ii <Esc>
 imap zz <Esc>:wq<CR>
 
-""""""""""""""""""""""""""""""""
-"
-" PROGRAMMING LANGUAGES
-"
-""""""""""""""""""""""""""""""""
 
 autocmd FileType python map <buffer> <Leader>p :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python map <buffer> <Leader>pt :w<CR>:exec '!python3 -m unittest' shellescape(@%, 1)<CR>
@@ -172,11 +163,6 @@ endfunction
 au BufEnter * call LangRunner()
 
 
-""""""""""""""""""""""""""""""""
-"
-" COOL HACKS
-"
-""""""""""""""""""""""""""""""""
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
     au!

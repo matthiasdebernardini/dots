@@ -21,6 +21,8 @@ abbr c    'bat'
 
 abbr frc    'nvim ~/.config/fish/config.fish'
 abbr vrc    'nvim ~/.config/nvim/init.vim'
+abbr trc   'nvim ~/.tmux.conf'
+abbr arc   'nvim ~/.config/fish/conf.d/abbreviations.fish'
 abbr reload 'source ~/.config/fish/config.fish'
 
 abbr cwd    "pwd | eval $CLIPBOARD"
