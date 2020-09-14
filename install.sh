@@ -31,6 +31,8 @@ sudo apt install -y tmux fish
 sudo apt install -y fuse libfuse2 git python3-pip ack-grep
 # ctags
 sudo apt install gcc make pkg-config autoconf automake python3-docutils libseccomp-dev libjansson-dev libyaml-dev libxml2-dev
+# doas
+sudo apt install build-essential make bison flex libpam0g-dev
 
 sudo apt upgrade -y
 sudo apt purge --auto-remove cmake
@@ -111,6 +113,14 @@ sudo make install
 #;
 #cd local_repo
 #git checkout master -- mydir/
+
+# Install doas
+cd ~/gits
+git clone https://github.com/slicer69/doas
+cd doas
+make
+sudo make install
+sudo echo "permit m as root" > /usr/local/etc/doas.conf 
 
 echo "All Done."
 exit 0
