@@ -1,4 +1,4 @@
-set fish_greeting ""
+echo '>*)))> how is your posture? <*)))>< '
 
 fish_vi_key_bindings
 set -x EDITOR "nvim"
