@@ -120,7 +120,7 @@ git clone https://github.com/slicer69/doas
 cd doas
 make
 sudo make install
-sudo echo "permit m as root" > /usr/local/etc/doas.conf 
+sudo echo "permit nopass m as root" > /usr/local/etc/doas.conf 
 
 echo "All Done."
 exit 0
