@@ -110,39 +110,31 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
 
-# Colors (Solarized Dark)
+# Colorscheme (mellow)
 colors:
-  # Default colors
-  primary:
-    background: '#002b36' # base03
-    foreground: '#839496' # base0
+    primary:
+        background: '#f2ddbc'
+        foreground: '#0f0908'
 
-  # Cursor colors
-  cursor:
-    text:   '#002b36' # base03
-    cursor: '#839496' # base0
+    normal:
+        black:      '#0f0908'
+        red:        '#af0032'
+        green:      '#4c6e25'
+        yellow:     '#a67458'
+        blue:       '#573e55'
+        magenta:    '#66292f'
+        cyan:       '#bf472c'
+        white:      '#e0ccae'
 
-  # Normal colors
-  normal:
-    black:   '#073642' # base02
-    red:     '#dc322f' # red
-    green:   '#859900' # green
-    yellow:  '#b58900' # yellow
-    blue:    '#268bd2' # blue
-    magenta: '#d33682' # magenta
-    cyan:    '#2aa198' # cyan
-    white:   '#eee8d5' # base2
-
-  # Bright colors
-  bright:
-    black:   '#002b36' # base03
-    red:     '#cb4b16' # orange
-    green:   '#586e75' # base01
-    yellow:  '#657b83' # base00
-    blue:    '#839496' # base0
-    magenta: '#6c71c4' # violet
-    cyan:    '#93a1a1' # base1
-    white:   '#fdf6e3' # base3
+    bright:
+        black:      '#291916'
+        red:        '#ff7477'
+        green:      '#84bf40'
+        yellow:     '#f5bb89'
+        blue:       '#8a7b85'
+        magenta:    '#8a4b53'
+        cyan:       '#d47d49'
+        white:      '#f2ddbc'
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
