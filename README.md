@@ -1,6 +1,6 @@
 # [alacritty + fish + tmux + neovim] 
 
-![screenshot](/setup.png)
+![screenshot](https://imgur.com/a/zJu6BJp)
 
 ## setup
 
