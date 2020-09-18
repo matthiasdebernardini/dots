@@ -1,13 +1,12 @@
 abbr gabb 'bat .config/fish/conf.d/abbreviations.fish | rg abbr | fzf'
-abbr aptd 'sudo apt update'
-abbr aptg 'sudo apt update && sudo apt -y upgrade'
+abbr aptg 'doas apt update && doas apt -y upgrade'
 
 abbr ls 'exa -al --color=always --group-directories-first --git -s=old'
 abbr la 'exa -a  --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
 abbr ll 'exa -l  --color=always --group-directories-first --git -s=old'  # long format
 abbr lt 'exa -aT --color=always --group-directories-first --git -s=old' # tree listing
 
-abbr bandw 'sudo bandwhich'
+abbr bandw 'doas bandwhich'
 
 abbr dots  '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 abbr dall  '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME add \

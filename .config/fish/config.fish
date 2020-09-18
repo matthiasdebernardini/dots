@@ -1,12 +1,14 @@
-echo '>*)))> how is your posture? <*)))>< '
+echo '🧘 how is your posture? 🐟'
 
-fish_vi_key_bindings
 set -x EDITOR "nvim"
 
-set PATH $HOME/gits/llvm-project/build/bin $PATH
-set LD_LIBRARY_PATH $HOME/gits/llvm-project/build/lib $LD_LIBRARY_PATH
+set -x PATH $HOME/gits/llvm-project/build/bin $PATH
+set -x LD_LIBRARY_PATH $HOME/gits/llvm-project/build/lib $LD_LIBRARY_PATH
 
-set PATH $HOME/.cargo/bin $PATH
+set -x PATH $HOME/.cargo/bin $PATH
+
+set -x GOPATH $HOME/go
+set -x PATH $PATH /usr/local/go/bin $GOPATH/bin
 
 set MYVIMRC ~/.config/nvim/init.vim
 

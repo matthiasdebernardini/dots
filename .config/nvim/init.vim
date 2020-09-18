@@ -21,9 +21,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-speeddating'
 
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'adigitoleo/vim-mellow'
+Plug 'adigitoleo/vim-mellow-statusline'
 
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
@@ -43,11 +42,6 @@ Plug 'overcache/NeoSolarized'
 
 Plug 'markonm/traces.vim'
 
-Plug 'axvr/zepl.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
 Plug 'dense-analysis/ale'
 Plug 'neomake/neomake'
 Plug 'sbdchd/neoformat'
@@ -187,7 +181,7 @@ let g:airline_solarized_bg='dark'
 " .............................................................................
 " iCyMind/NeoSolarized
 " .............................................................................
-colorscheme NeoSolarized
+colorscheme mellow
 " .............................................................................
 " mattn/webapi-vim
 " .............................................................................
@@ -259,14 +253,6 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comm
 
 "Launch FZF with -m which lets you select multi lines - similar functionality
 nnoremap <silent> <C-p> :FZF<CR>
-" .............................................................................
-" deoplete-plugins/deoplete-clang
-" .............................................................................
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#clang#libclang_path = '/home/m/gits/llvm-project/build/lib/libclang.so'
-call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
-" maximum candidate window length
-call deoplete#custom#source('_', 'max_menu_width', 80)
 
 let g:neomake_python_enabled_makers = ['pylint']
 call neomake#configure#automake('nrwi', 500)
@@ -276,6 +262,7 @@ let g:neoformat_cpp_clangformat = {
     \ 'exe': 'clang-format',
     \ 'args': ['--style="{IndentWidth: 4}"']
 \}
+
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c = ['clangformat']
 
@@ -287,11 +274,7 @@ let g:neoformat_basic_format_retab = 1
 
 " Enable trimmming of trailing whitespace
 let g:neoformat_basic_format_trim = 1
-" disable autocompletion, cause we use deoplete for completion
-let g:jedi#completions_enabled = 0
 
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
 " .............................................................................
 " dense-analysis/ale
 " .............................................................................
