@@ -1,6 +1,6 @@
 # [alacritty + fish + tmux + neovim] 
 
-![](http://i.imgur.png/zJu6BJp.png )
+![](https://i.ibb.co/4ZRzGFX/Screenshot-2020-09-18-at-16-14-16.png )
 
 ## setup
 
@@ -17,33 +17,10 @@ I will eventually add different ways
  + git only (no symlinks or sync'd copies)
  + can use branches to manage multiple instances
  + bootstraps itself with a one liner (small script)
- + solarized colorscheme that somewhat across the board
+ + mellow colorscheme for the terminal and vim
  + lots of fish abbr's, with a command to help learn them
  + well put together FZF integration in the shell and text editor
  
 ## gist
 
 `curl https://gist.githubusercontent.com/matthiasdebernardini/969a3e2776fcc4b56aa774e792efcfe9/raw`
-
-## projects 
-
-+ [alacritty](https://medium.com/@pezcoder/how-i-migrated-from-iterm-to-alacritty-c50a04705f95)
-+ [fish](https://fishshell.com)
-+ [nvim](https://www.linode.com/docs/tools-reference/tools/how-to-install-neovim-and-plugins-with-vim-plug/)
-+ [fzf](https://github.com/junegunn/fzf)
-+ [ripgrep](https://github.com/BurntSushi/ripgrep)
-+ [sd](https://github.com/chmln/sd)
-+ [exa](https://the.exa.website)
-+ [fd-find](https://github.com/sharkdp/fd)
-+ [jql](https://github.com/yamafaktory/jql)
-+ [gitweb](https://github.com/yoannfleurydev/gitweb)
-+ [just](https://github.com/casey/just)
-+ [du-dust](https://github.com/bootandy/dust)
-+ [zoxide](https://github.com/ajeetdsouza/zoxide)
-+ [bat](https://github.com/sharkdp/bat)
-+ [bandwhich](https://github.com/imsnif/bandwhich)
-+ [fisher](https://github.com/jorgebucaran/fisher)
-+ [gitnow](https://github.com/joseluisq/gitnow)
-+ [pure](https://github.com/rafaelrinaldi/pure)
-+ [fzf.fish](https://github.com/patrickf3139/fzf.fish)
-+ [vim-plug](https://github.com/junegunn/vim-plug)
