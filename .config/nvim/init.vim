@@ -10,9 +10,6 @@
 """"""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
-Plug 'mattn/webapi-vim'
-Plug 'mattn/vim-gist'
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'machakann/vim-sandwich'
@@ -21,10 +18,8 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-speeddating'
 
-" Plug 'adigitoleo/vim-mellow'
 Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
-" Plug 'adigitoleo/vim-mellow-statusline'
 
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
@@ -32,8 +27,11 @@ Plug 'jiangmiao/auto-pairs'
 " Fuzzy finder in vim
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all', 'on': ['FZF', 'Tags', 'Buffers', 'Files', 'Helptags', 'Lines', 'Ag'] }
 Plug 'junegunn/fzf.vim', { 'on': ['FZF', 'Tags', 'Buffers', 'Files', 'Helptags', 'Lines', 'Ag', 'Filetypes'] }
-
+Plug 'jremmen/vim-ripgrep'
 Plug 'mhinz/vim-grepper'
+
+Plug 'junegunn/vim-easy-align'
+
 Plug 'mhinz/vim-signify'
 
 Plug 'rust-lang/rust.vim'
@@ -50,7 +48,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'honza/vim-snippets'
 
-Plug 'webastien/vim-ctags'
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'terryma/vim-multiple-cursors'
 
@@ -83,9 +81,10 @@ set hidden
 set ignorecase
 set smartcase
 set showmatch
+set noshowmode
 set incsearch
 set hls
-set ls=2
+set ls=4
 " set cursorline
 set nowrap
 set shell=/bin/bash
@@ -105,7 +104,7 @@ let mapleader=","
 nnoremap <leader><leader> <c-^>
 
 " Press <tab>, get two spaces
-set expandtab shiftwidth=2
+set expandtab shiftwidth=4
 
 " Show `▸▸` for tabs: 	, `·` for tailing whitespace: 
 set list listchars=tab:▸▸,trail:·
@@ -148,7 +147,7 @@ nnoremap <leader>V :tabnew  $MYVIMRC<CR>
 map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
 imap ii <Esc>
 imap zz <Esc>:wq<CR>
-imap ;; <Esc>A;<CR>
+imap <leader>;<Esc>A;<CR>
 
 
 autocmd FileType python map <buffer> <Leader>p :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -168,7 +167,6 @@ endfunction
 
 au BufEnter * call LangRunner()
 
-
 " Make sure Vim returns to the same line when you reopen a file.
 augroup line_return
     au!
@@ -178,43 +176,41 @@ augroup line_return
         \ endif
 augroup END
 
-
 hi HighlightedyankRegion cterm=reverse gui=reverse
 " set highlight duration time to 1000 ms, i.e., 1 second
 let g:highlightedyank_highlight_duration = 1000
 " .............................................................................
-" adigitoleo/vim-mellow
+" arcticicestudio/nord-vim
 " .............................................................................
-" let g:mellow_user_colors = 1
 colorscheme nord
+
 let g:lightline = {
       \ 'colorscheme': 'nord',
+      \      'active': {
+      \        'left': 
+      \           [
+      \             [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'helloworld' ] 
+      \           ]
+      \ },
+      \ 'component_function': {
+      \          'gitbranch': 'FugitiveHead'
+      \ },
       \ }
-" .............................................................................
-" mattn/webapi-vim
-" .............................................................................
-let g:gist_post_private = 1
 " .............................................................................
 " vimwiki/vimwiki
 " .............................................................................
 let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
-" .............................................................................
-" neoclide/coc.nvim
-" .............................................................................
-"
-" Use K to show documentation in preview window.
-" nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 
 " .............................................................................
 " rust-lang/rust.vim
 " .............................................................................
-nnoremap <Leader>cr :Gwrite<CR> :Cargo run<CR>
-nnoremap <Leader>ct :Gwrite<CR> :Cargo test<CR>
+nnoremap <Leader>cr  :Gwrite<CR> :Cargo run<CR>
+nnoremap <Leader>ct  :Gwrite<CR> :Cargo test<CR>
 nnoremap <Leader>cti :Gwrite<CR> :Cargo test -- --ignored<CR>
-nnoremap <Leader>cc :Gwrite<CR> :Cargo clippy --all-targets<CR>
+nnoremap <Leader>cc  :Gwrite<CR> :Cargo clippy --all-targets<CR>
 
 let g:rustfmt_autosave = 1
 
@@ -243,8 +239,10 @@ let g:fzf_action = {
       \ 'ctrl-t': 'tabedit',
       \ 'ctrl-p': 'split',
       \ 'ctrl-v': 'vsplit' }
+
 let g:fzf_layout = {'window': { 'width': 0.9, 'height': 0.4 } }
 let g:fzf_preview_window = 'right:60%'
+
 " Jump to existing buffer/window if possible
 let g:fzf_buffers_jump = 1
 
@@ -262,6 +260,25 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comm
 "Launch FZF with -m which lets you select multi lines - similar functionality
 nnoremap <silent> <C-p> :FZF<CR>
 
+" .............................................................................
+" junegunn/vim-easy-align
+" .............................................................................
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+if executable("rg")
+    command! -bang -nargs=* Rg
+          \ call fzf#vim#ripgrep(
+          \   'rg --column --line-number --no-heading --color=always --ignore-case '.shellescape(<q-args>), 1,
+          \   <bang>0 ? fzf#vim#with_preview('up:60%')
+          \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+          \   <bang>0)
+    nnoremap <C-e>a :Rg
+endif
+
 let g:neomake_python_enabled_makers = ['pylint']
 call neomake#configure#automake('nrwi', 500)
 
@@ -272,7 +289,7 @@ let g:neoformat_cpp_clangformat = {
 \}
 
 let g:neoformat_enabled_cpp = ['clangformat']
-let g:neoformat_enabled_c = ['clangformat']
+let g:neoformat_enabled_c   = ['clangformat']
 
 " Enable alignment
 let g:neoformat_basic_format_align = 1
@@ -287,17 +304,17 @@ let g:neoformat_basic_format_trim = 1
 " dense-analysis/ale
 " .............................................................................
 let g:ale_linters = {
-    \ 'python': ['pylint'],
-    \ 'vim': ['vint'],
-    \ 'cpp': ['clang'],
-    \ 'c': ['clang']
+    \ 'python':   ['pylint'],
+    \ 'vim':      ['vint'],
+    \ 'cpp':      ['clang'],
+    \ 'c':        ['clang']
 \}
 
 " .............................................................................
 " ferrine/md-img-paste
 " .............................................................................
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-autocmd FileType wiki nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+autocmd FileType wiki     nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 
 " .............................................................................
 " mhinz/vim-grepper
@@ -307,6 +324,7 @@ let g:grepper={}
 let g:grepper.tools=["rg"]
 
 nnoremap <Leader>r :%s//gc<Left><Left><Left>
+
 xmap gr <plug>(GrepperOperator)
 
 " After searching for text, press this mapping to do a project wide find and
@@ -399,18 +417,18 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+nmap <silent> <TAB>   <Plug>(coc-range-select)
+xmap <silent> <TAB>   <Plug>(coc-range-select)
 xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
 
 " Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+command! -nargs=? Fold   :call CocAction('fold', <f-args>)
 
 " use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 OR     :call CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
