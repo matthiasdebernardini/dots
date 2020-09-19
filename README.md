@@ -1,6 +1,6 @@
 # [alacritty + fish + tmux + neovim] 
 
-![](https://i.ibb.co/4ZRzGFX/Screenshot-2020-09-18-at-16-14-16.png )
+![nord](https://i.ibb.co/brhBPL1/Screenshot-2020-09-19-at-13-42-45.png)
 
 ## setup
 
@@ -17,7 +17,7 @@ I will eventually add different ways
  + git only (no symlinks or sync'd copies)
  + can use branches to manage multiple instances
  + bootstraps itself with a one liner (small script)
- + mellow colorscheme for the terminal and vim
+ + nord colorscheme for the terminal and vim
  + lots of fish abbr's, with a command to help learn them
  + well put together FZF integration in the shell and text editor
  
