@@ -42,40 +42,50 @@ sudo apt install build-essential make bison flex libpam0g-dev
 sudo apt upgrade -y
 sudo apt purge --auto-remove cmake
 
+# vagrant and virtualbox
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+sudo apt update
+sudo apt install -y virtualbox-5.2 vagrant
+
+curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
+sudo apt install ./vagrant_2.2.6_x86_64.deb
+
 # install CMake
-echo "Installing LLVM..."
-version=3.18
-build=1
-cd gits
-wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
-tar -xzvf cmake-$version.$build.tar.gz
-cd cmake-$version.$build/
-./bootstrap
-make -j$(nproc)
-sudo make install
+# echo "Installing LLVM..."
+# version=3.18
+# build=1
+# cd gits
+# wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
+# tar -xzvf cmake-$version.$build.tar.gz
+# cd cmake-$version.$build/
+# ./bootstrap
+# make -j$(nproc)
+# sudo make install
 
 # install LLVM
-echo "Installing LLVM..."
-cd ~/gits
-git clone https://github.com/llvm/llvm-project.git
-cd llvm-project
-mkdir build && cd build
-cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release  ../llvm
-make -j$(nproc)
+# echo "Installing LLVM..."
+# cd ~/gits
+# git clone https://github.com/llvm/llvm-project.git
+# cd llvm-project
+# mkdir build && cd build
+# cmake -DLLVM_ENABLE_PROJECTS=clang -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release  ../llvm
+# make -j$(nproc)
 
 # install Rust
 echo "Installing Rust..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 cargo install --locked bat
-cargo install ripgrep sd exa fd-find jql gitweb just du-dust
-cargo install zoxide -f
-sudo cargo install bandwhich --root /usr/local/bin/
+# cargo install ripgrep sd exa fd-find jql gitweb just du-dust
+# cargo install zoxide -f
+# sudo cargo install bandwhich --root /usr/local/bin/
 
 # install Fisher plugin and plugins
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
 source ~/.config/fish/functions/fisher.fish
-fisher add joseluisq/gitnow rafaelrinaldi/pure patrickf3139/fzf.fish
+# fisher add joseluisq/gitnow patrickf3139/fzf.fish
 
 # Install NeoVim
 cd ~

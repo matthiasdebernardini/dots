@@ -84,7 +84,7 @@ set showmatch
 set noshowmode
 set incsearch
 set hls
-set ls=4
+set ls=2
 " set cursorline
 set nowrap
 set shell=/bin/bash
@@ -144,15 +144,15 @@ nnoremap <leader>sc :CloseSession<CR>
 nnoremap <leader>v :e  $MYVIMRC<CR>
 nnoremap <leader>V :tabnew  $MYVIMRC<CR>
 
-map <F5> <Esc>:Gwrite<CR>:!clear;python %<CR>
-imap ii <Esc>
-imap zz <Esc>:wq<CR>
-imap <leader>;<Esc>A;<CR>
+map  <F5>      <Esc>:Gwrite<CR>:!clear;python %<CR>
+imap ii        <Esc>
+imap zz        <Esc>:wq<CR>
+imap <leader>; <Esc>A;<CR>
 
 
-autocmd FileType python map <buffer> <Leader>p :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
-autocmd FileType python map <buffer> <Leader>pt :w<CR>:exec '!python3 -m unittest' shellescape(@%, 1)<CR>
-autocmd FileType python imap <buffer> <Leader>p <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map  <buffer> <Leader>p  :w<CR>:exec      '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python map  <buffer> <Leader>pt :w<CR>:exec      '!python3 -m unittest' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <Leader>p  <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
 " General file runners for various languages
 function! LangRunner()

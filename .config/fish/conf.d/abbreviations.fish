@@ -1,4 +1,5 @@
-abbr gabb     'bat .config/fish/conf.d/abbreviations.fish | rg abbr | fzf'
+abbr gabb     'bat ~/.config/fish/conf.d/abbreviations.fish | rg abbr | fzf'
+abbr aptd     'doas apt install -y'
 abbr aptg     'doas apt update && doas apt -y upgrade'
 abbr ls       'exa -al --color=always --group-directories-first --git -s=old'
 abbr la       'exa -a  --color=always --group-directories-first --git -s=old --header --long'  # all files and dirs
@@ -6,15 +7,15 @@ abbr ll       'exa -l  --color=always --group-directories-first --git -s=old'  #
 abbr lt       'exa -aT --color=always --group-directories-first --git -s=old' # tree listing
 abbr bandw    'doas bandwhich'
 abbr dots     '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
-abbr dall     '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME add               \
-                                              ~/.config/fish/conf.d/abbreviations.fish \
-                                              ~/.config/fish/config.fish               \
-                                              ~/.config/nvim/init.vim                  \
-                                              ~/.tmux.conf                             \
-                                              ~/.config/alacritty/alacritty.yml        \
-                                              ~/.config/fish/conf.d/tmux.fish          \
-                                              ~/README.md                              \
-                                              ~/install.sh'
+abbr dall     '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME add \
+                                ~/.config/fish/conf.d/abbreviations.fish \
+                                ~/.config/fish/config.fish               \
+                                ~/.config/nvim/init.vim                  \
+                                ~/.tmux.conf                             \
+                                ~/.config/alacritty/alacritty.yml        \
+                                ~/.config/fish/conf.d/tmux.fish          \
+                                ~/README.md                              \
+                                ~/install.sh'
 abbr dcomm    '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME commit'
 abbr dpull    '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME pull origin master'
 abbr dpush    '/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME push origin master'
