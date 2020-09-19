@@ -17,7 +17,7 @@ I will eventually add different ways
  + git only (no symlinks or sync'd copies)
  + can use branches to manage multiple instances
  + bootstraps itself with a one liner (small script)
- + nord colorscheme for the terminal and vim
+ + nord colorscheme for alacritty, neovim and the statusline
  + lots of fish abbr's, with a command to help learn them
  + well put together FZF integration in the shell and text editor
  
