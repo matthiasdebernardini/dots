@@ -27,6 +27,11 @@ sudo apt update
 sudo apt install -y build-essential 
 sudo apt install -y software-properties-common libssl-dev pkg-config
 sudo apt install -y tmux fish
+# Install Github CLI
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt update
+sudo apt install gh
 # neovim
 sudo apt install -y fuse libfuse2 git python3-pip ack-grep
 # ctags
@@ -121,6 +126,12 @@ cd doas
 make
 sudo make install
 sudo echo "permit nopass m as root" > /usr/local/etc/doas.conf 
+
+# Install Go
+curl -O https://storage.googleapis.com/golang/go1.12.9.linux-amd64.tar.gz
+tar -xvf go1.12.9.linux-amd64.tar.gz
+sudo chown -R root:root ./go
+sudo mv go /usr/local
 
 echo "All Done."
 exit 0
