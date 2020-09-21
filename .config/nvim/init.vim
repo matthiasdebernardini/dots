@@ -128,9 +128,9 @@ set history=100
 set undolevels=100
 
 " session management
-let g:session_directory = "~/.vim/session"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
+let g:session_directory       = "~/.vim/session"
+let g:session_autoload        = "no"
+let g:session_autosave        = "no"
 let g:session_command_aliases = 1
 
 nnoremap <leader>so :OpenSession 
@@ -138,11 +138,15 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
+set wildcharm=<C-z>
+nnoremap <leader>e :e **/*<C-z><S-Tab>
 
+set path-=/usr/include
+nnoremap <leader>f :find **/*<C-z><S-Tab>
 
 " open vimrc
-nnoremap <leader>v :e  $MYVIMRC<CR>
-nnoremap <leader>V :tabnew  $MYVIMRC<CR>
+nnoremap <leader>v :e      $MYVIMRC<CR>
+nnoremap <leader>V :tabnew $MYVIMRC<CR>
 
 map  <F5>      <Esc>:Gwrite<CR>:!clear;python %<CR>
 imap ii        <Esc>
@@ -197,11 +201,13 @@ let g:lightline = {
       \          'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
 " .............................................................................
 " vimwiki/vimwiki
 " .............................................................................
-let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+let g:vimwiki_list = [ {'path': '~/Documents/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
 au FileType vimwiki setlocal shiftwidth=6 tabstop=6 noexpandtab
 
 " .............................................................................
@@ -284,9 +290,9 @@ call neomake#configure#automake('nrwi', 500)
 
 " custom setting for clangformat
 let g:neoformat_cpp_clangformat = {
-    \ 'exe': 'clang-format',
+    \ 'exe':  'clang-format',
     \ 'args': ['--style="{IndentWidth: 4}"']
-\}
+    \ }
 
 let g:neoformat_enabled_cpp = ['clangformat']
 let g:neoformat_enabled_c   = ['clangformat']
@@ -304,11 +310,11 @@ let g:neoformat_basic_format_trim = 1
 " dense-analysis/ale
 " .............................................................................
 let g:ale_linters = {
-    \ 'python':   ['pylint'],
-    \ 'vim':      ['vint'],
-    \ 'cpp':      ['clang'],
-    \ 'c':        ['clang']
-\}
+    \ 'python': ['pylint'],
+    \ 'vim':    ['vint'],
+    \ 'cpp':    ['clang'],
+    \ 'c':      ['clang']
+    \ }
 
 " .............................................................................
 " ferrine/md-img-paste
