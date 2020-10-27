@@ -58,6 +58,8 @@ Plug 'tmhedberg/SimpylFold'
 
 Plug 'ferrine/md-img-paste.vim'
 
+Plug 'tommcdo/vim-exchange'
+
 call plug#end()
 
 
@@ -122,12 +124,12 @@ set backup
 set writebackup
 set noswapfile
 
-" persist (g)undo tree between sessions
+" " persist (g)undo tree between sessions
 set undofile
 set history=100
 set undolevels=100
 
-" session management
+" " session management
 let g:session_directory       = "~/.vim/session"
 let g:session_autoload        = "no"
 let g:session_autosave        = "no"
@@ -137,6 +139,7 @@ nnoremap <leader>so :OpenSession
 nnoremap <leader>ss :SaveSession 
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
+
 
 set wildcharm=<C-z>
 nnoremap <leader>e :e **/*<C-z><S-Tab>

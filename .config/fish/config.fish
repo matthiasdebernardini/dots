@@ -30,5 +30,9 @@ function take
   cd $argv
 end
 
+function cht
+    curl -sL cheat.sh/$argv | bat -p
+end
+
 zoxide init fish | source
 
