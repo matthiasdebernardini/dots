@@ -43,14 +43,14 @@ sudo apt upgrade -y
 sudo apt purge --auto-remove cmake
 
 # vagrant and virtualbox
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
-sudo apt update
-sudo apt install -y virtualbox-5.2 vagrant
+#wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+#wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+#sudo add-apt-repository "deb http://download.virtualbox.org/virtualbox/debian bionic contrib"
+#sudo apt update
+#sudo apt install -y virtualbox-5.2 vagrant
 
-curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
-sudo apt install ./vagrant_2.2.6_x86_64.deb
+#curl -O https://releases.hashicorp.com/vagrant/2.2.6/vagrant_2.2.6_x86_64.deb
+#sudo apt install ./vagrant_2.2.6_x86_64.deb
 
 # install CMake
 # echo "Installing LLVM..."
