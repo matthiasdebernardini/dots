@@ -25,7 +25,7 @@ mkdir gits
 sudo apt-add-repository ppa:fish-shell/release-3
 sudo apt update
 sudo apt install -y build-essential 
-sudo apt install -y software-properties-common libssl-dev pkg-config
+sudo apt install -y software-properties-common libssl-dev pkg-config net-tools
 sudo apt install -y tmux fish
 # Install Github CLI
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
